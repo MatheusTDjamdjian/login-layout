@@ -1,54 +1,55 @@
 @charset "UTF-8";
 
-@media screen and (min-width: 768px) and (max-width: 992px) {
-    body {
-        background-image: linear-gradient(to top, #205C5C, #0A2A32);
-    }
-    
-    section#login {
-        width: 80vw;
-        height: 300px;
+/* Tablet e abaixo — empilha o card */
+@media (max-width: 880px) {
+    .card {
+        grid-template-columns: 1fr;
+        max-width: 480px;
     }
 
-    section#login > div#img {
-        float: left;
-        width: 30%;
-        height: 100%;
+    .brand {
+        min-height: 200px;
+        padding: 24px;
     }
 
-    section#login > div#form {
-        float: right;
-        width: 70%;
+    .brand__head { margin-bottom: 70px; }
+    .brand__quote { font-size: 1.05rem; max-width: 100%; }
+    .brand__author { font-size: 0.72rem; margin-top: 10px; }
+
+    .panel {
+        padding: 40px 32px;
     }
 }
 
-@media screen and (min-width: 992px) {
-    body {
-        background-image: linear-gradient(to top, #205C5C, #0A2A32);
-    }
-    
-    section#login {
-        width: 950px;
-        height: 380px;
+/* Mobile compacto */
+@media (max-width: 480px) {
+    .shell { padding: 16px; }
+
+    .card { border-radius: 18px; }
+
+    .brand {
+        min-height: 160px;
+        padding: 20px;
     }
 
-    section#login > div#img {
-        float: right;
-        width: 50%;
-        height: 100%;
+    .brand__head { margin-bottom: 0; }
+    .brand__foot { display: none; }
+    .badge { display: none; }
+
+    .panel {
+        padding: 32px 22px;
     }
 
-    section#login > div#form {
-        float: left;
-        width: 50%;
-    }
+    .panel__head h1 { font-size: 1.45rem; }
+    .lead { font-size: 0.86rem; }
 
-    div#form > h1 {
-        font-size: 2em;
-    }
+    .field__input { height: 50px; padding-top: 18px; }
+    .submit { height: 48px; }
 
-    div#form > p {
-        font-size: 1.2em;
-        margin: 20px 0px;
-    }
+    .row { gap: 8px; }
+}
+
+/* Telas muito largas — limita o conforto de leitura */
+@media (min-width: 1280px) {
+    .panel { padding: 64px 56px; }
 }

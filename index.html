@@ -3,39 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+    <meta name="description" content="Acesse sua conta com segurança">
+    <meta name="theme-color" content="#061a20">
+    <title>Entrar — Nimbus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="estilos/style.css">
     <link rel="stylesheet" href="estilos/media-query.css">
 </head>
 <body>
-    <main>
-        <section id="login">
-            <div id="img">
-                
-            </div>
-            <div id="form">
-                <h1>Login</h1>
-                <p>Seja bem-vindo(a) novamente. Faça login para acessar sua conta.</p>
-                <form action="login.php" method="post" autocomplete="on">
-                    <div class="campo">
-                        <span class="material-icons">person</span>
-                        <input type="email" name="login" id="ilogin" placeholder="Seu e-mail" autocomplete="email" required maxlength="30" class="input">
-                        <label for="ilogin">Login</label>
-                    </div>
-                    <div class="campo">
-                        <span class="material-icons">vpn_key</span>
-                        <input type="password" name="senha" id="isenha" autocomplete="current-password" required maxlength="20" minlength="8" class="input" placeholder="Senha">
-                        <label for="isenha">Senha</label>
-                    </div>
-                    <input type="submit" value="Entrar">
-                    <a href="esqueci.html" class="botao">
-                        <p>Esqueci a senha</p> <i class="material-icons">mail</i>
+    <div class="aurora" aria-hidden="true">
+        <span class="orb orb--a"></span>
+        <span class="orb orb--b"></span>
+        <span class="orb orb--c"></span>
+        <div class="grid"></div>
+    </div>
+
+    <main class="shell">
+        <section class="card" aria-label="Acesso à conta">
+            <aside class="brand">
+                <div class="brand__overlay" aria-hidden="true"></div>
+                <header class="brand__head">
+                    <a href="#" class="logo" aria-label="Nimbus, página inicial">
+                        <svg viewBox="0 0 32 32" aria-hidden="true">
+                            <path d="M6 19a6 6 0 016-6 7 7 0 0113.5 2.5A5 5 0 0124 25H8a4 4 0 01-2-6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Nimbus</span>
                     </a>
+                    <span class="badge"><span class="dot"></span>Servidores online</span>
+                </header>
+                <footer class="brand__foot">
+                    <p class="brand__quote">"Bom design é tão pouco design quanto possível."</p>
+                    <p class="brand__author">Dieter Rams · Princípio 10</p>
+                </footer>
+            </aside>
+
+            <div class="panel">
+                <header class="panel__head">
+                    <p class="eyebrow" id="greeting">Bem-vindo de volta</p>
+                    <h1>Acesse sua conta</h1>
+                    <p class="lead">Entre com suas credenciais para continuar de onde parou.</p>
+                </header>
+
+                <form class="form" id="loginForm" action="login.php" method="post" autocomplete="on">
+                    <div class="field">
+                        <input type="email" id="email" name="login" class="field__input" placeholder=" " required maxlength="60" autocomplete="email" spellcheck="false">
+                        <label class="field__label" for="email">E-mail</label>
+                        <span class="field__check" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </div>
+
+                    <div class="field">
+                        <input type="password" id="senha" name="senha" class="field__input" placeholder=" " required minlength="8" maxlength="32" autocomplete="current-password">
+                        <label class="field__label" for="senha">Senha</label>
+                        <button type="button" class="field__toggle" id="togglePass" aria-label="Mostrar senha" aria-pressed="false">
+                            <svg class="icon-eye" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                                <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/>
+                            </svg>
+                            <svg class="icon-eye-off" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M3 3l18 18M10.6 6.1A9 9 0 0112 6c7 0 11 6 11 6a18 18 0 01-3.1 4.1M6.1 6.1A18 18 0 001 12s4 8 11 8a10.7 10.7 0 005.4-1.4M9.9 9.9a3 3 0 004.2 4.2" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <p class="field__warning" role="status">
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M12 4l-7 7h4v6h6v-6h4l-7-7zM5 21h14" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+                            </svg>
+                            Caps Lock está ativado
+                        </p>
+                    </div>
+
+                    <div class="row">
+                        <label class="check">
+                            <input type="checkbox" name="lembrar">
+                            <span class="check__box" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <span>Manter conectado</span>
+                        </label>
+                        <a href="esqueci.html" class="link">Esqueci a senha</a>
+                    </div>
+
+                    <button type="submit" class="submit" id="submitBtn">
+                        <span class="submit__text">Entrar</span>
+                        <svg class="submit__arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="submit__spin" aria-hidden="true"></span>
+                    </button>
+
+                    <p class="signup">Não tem uma conta? <a href="#" class="link link--accent">Criar conta</a></p>
                 </form>
             </div>
         </section>
     </main>
+
+    <script src="script.js" defer></script>
 </body>
 </html>
