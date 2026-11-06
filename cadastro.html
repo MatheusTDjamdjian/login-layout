@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Crie sua conta Nimbus em menos de um minuto">
+    <meta name="theme-color" content="#061a20">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <title>Criar conta — Nimbus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos/style.css">
+    <link rel="stylesheet" href="estilos/cadastro.css">
+    <link rel="stylesheet" href="estilos/media-query.css">
+</head>
+<body>
+    <div class="aurora" aria-hidden="true">
+        <span class="orb orb--a"></span>
+        <span class="orb orb--b"></span>
+        <span class="orb orb--c"></span>
+        <div class="grid"></div>
+    </div>
+
+    <main class="shell">
+        <section class="card card--signup" aria-label="Criação de conta">
+            <aside class="brand">
+                <div class="brand__overlay" aria-hidden="true"></div>
+                <header class="brand__head">
+                    <a href="index.html" class="logo" aria-label="Nimbus, voltar ao login">
+                        <svg viewBox="0 0 32 32" aria-hidden="true">
+                            <path d="M6 19a6 6 0 016-6 7 7 0 0113.5 2.5A5 5 0 0124 25H8a4 4 0 01-2-6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Nimbus</span>
+                    </a>
+                    <span class="badge"><span class="dot"></span>Leva menos de 1 minuto</span>
+                </header>
+                <footer class="brand__foot">
+                    <p class="brand__title">Tudo o que você precisa, em um só lugar.</p>
+                    <ul class="perks">
+                        <li>
+                            <span class="perks__icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 0114-5.3M20 12a8 8 0 01-14 5.3M18 3v4h-4M6 21v-4h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </span>
+                            Sincronização em todos os seus dispositivos
+                        </li>
+                        <li>
+                            <span class="perks__icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8 11V8a4 4 0 018 0v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                            </span>
+                            Criptografia de ponta a ponta
+                        </li>
+                        <li>
+                            <span class="perks__icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </span>
+                            Cancele quando quiser, sem burocracia
+                        </li>
+                    </ul>
+                </footer>
+            </aside>
+
+            <div class="panel">
+                <header class="panel__head">
+                    <p class="eyebrow">Comece agora</p>
+                    <h1>Crie sua conta</h1>
+                    <p class="lead">Preencha os dados abaixo para começar a usar o Nimbus.</p>
+                </header>
+
+                <form class="form" id="signupForm" action="cadastro.php" method="post" autocomplete="on">
+                    <div class="field">
+                        <div class="field__control">
+                            <input type="text" id="nome" name="nome" class="field__input" placeholder=" " required minlength="3" maxlength="80" autocomplete="name" aria-describedby="nomeErro">
+                            <label class="field__label" for="nome">Nome completo</label>
+                            <span class="field__check" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </div>
+                        <p class="field__error" id="nomeErro" aria-live="polite"></p>
+                    </div>
+
+                    <div class="field">
+                        <div class="field__control">
+                            <input type="email" id="email" name="email" class="field__input" placeholder=" " required maxlength="60" autocomplete="email" spellcheck="false" aria-describedby="emailErro">
+                            <label class="field__label" for="email">E-mail</label>
+                            <span class="field__check" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </div>
+                        <p class="field__error" id="emailErro" aria-live="polite"></p>
+                    </div>
+
+                    <div class="field field--pass">
+                        <div class="field__control">
+                            <input type="password" id="senha" name="senha" class="field__input" placeholder=" " required minlength="8" maxlength="32" autocomplete="new-password" aria-describedby="forca senhaErro">
+                            <label class="field__label" for="senha">Senha</label>
+                            <button type="button" class="field__toggle" data-toggle="senha" aria-label="Mostrar senha" aria-pressed="false">
+                                <svg class="icon-eye" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                                    <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/>
+                                </svg>
+                                <svg class="icon-eye-off" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M3 3l18 18M10.6 6.1A9 9 0 0112 6c7 0 11 6 11 6a18 18 0 01-3.1 4.1M6.1 6.1A18 18 0 001 12s4 8 11 8a10.7 10.7 0 005.4-1.4M9.9 9.9a3 3 0 004.2 4.2" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <p class="field__warning" role="status">
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M12 4l-7 7h4v6h6v-6h4l-7-7zM5 21h14" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+                            </svg>
+                            Caps Lock está ativado
+                        </p>
+
+                        <div class="strength" id="forca" data-level="0">
+                            <div class="strength__bars" aria-hidden="true">
+                                <span></span><span></span><span></span><span></span>
+                            </div>
+                            <p class="strength__label" aria-live="polite">Use 8+ caracteres com letras, números e símbolos</p>
+                        </div>
+                        <ul class="rules" aria-label="Requisitos da senha">
+                            <li data-rule="len">8 ou mais caracteres</li>
+                            <li data-rule="case">Maiúsculas e minúsculas</li>
+                            <li data-rule="num">Um número</li>
+                            <li data-rule="sym">Um símbolo</li>
+                        </ul>
+                        <p class="field__error" id="senhaErro" aria-live="polite"></p>
+                    </div>
+
+                    <div class="field field--pass">
+                        <div class="field__control">
+                            <input type="password" id="confirmar" name="confirmar" class="field__input" placeholder=" " required maxlength="32" autocomplete="new-password" aria-describedby="confirmarErro">
+                            <label class="field__label" for="confirmar">Confirmar senha</label>
+                            <span class="field__check" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <button type="button" class="field__toggle" data-toggle="confirmar" aria-label="Mostrar senha" aria-pressed="false">
+                                <svg class="icon-eye" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                                    <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/>
+                                </svg>
+                                <svg class="icon-eye-off" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <path d="M3 3l18 18M10.6 6.1A9 9 0 0112 6c7 0 11 6 11 6a18 18 0 01-3.1 4.1M6.1 6.1A18 18 0 001 12s4 8 11 8a10.7 10.7 0 005.4-1.4M9.9 9.9a3 3 0 004.2 4.2" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <p class="field__error" id="confirmarErro" aria-live="polite"></p>
+                    </div>
+
+                    <div class="terms">
+                        <label class="check check--top">
+                            <input type="checkbox" id="termos" name="termos" required>
+                            <span class="check__box" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M5 12l4 4 10-10" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <span>Li e aceito os <a href="#" class="link link--accent">Termos de Uso</a> e a <a href="#" class="link link--accent">Política de Privacidade</a></span>
+                        </label>
+                        <p class="field__error" id="termosErro" aria-live="polite"></p>
+                    </div>
+
+                    <button type="submit" class="submit" id="submitBtn">
+                        <span class="submit__text">Criar conta</span>
+                        <svg class="submit__arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="submit__spin" aria-hidden="true"></span>
+                    </button>
+
+                    <p class="signup">Já tem uma conta? <a href="index.html" class="link link--accent">Entrar</a></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="cadastro.js" defer></script>
+</body>
+</html>

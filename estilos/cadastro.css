@@ -1,0 +1,191 @@
+@charset "UTF-8";
+
+/*
+    Complementos da tela de cadastro.
+    Reaproveita tokens e componentes de style.css.
+*/
+
+:root {
+    --danger: #f08a8a;
+    --danger-soft: rgba(240, 138, 138, 0.14);
+}
+
+/* ============== Brand: título + vantagens ============== */
+.brand__title {
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+    color: var(--ink-1);
+    max-width: 92%;
+}
+
+.perks {
+    list-style: none;
+    margin-top: 22px;
+    display: grid;
+    gap: 12px;
+}
+
+.perks li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.88rem;
+    color: var(--ink-2);
+}
+
+.perks__icon {
+    flex-shrink: 0;
+    width: 30px; height: 30px;
+    display: grid;
+    place-items: center;
+    color: var(--teal-3);
+    background: rgba(108, 211, 207, 0.1);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+}
+.perks__icon svg { width: 16px; height: 16px; }
+
+/* ============== Formulário mais denso ============== */
+.card--signup .panel { padding-top: 48px; padding-bottom: 48px; }
+.card--signup .form { margin-top: 28px; gap: 12px; }
+
+/* Ícones e label centralizados só no input, não no bloco todo
+   (o campo de senha cresce com medidor, requisitos e erros) */
+.field__control { position: relative; }
+
+/* Campo de confirmação: ícone de check + botão de olho lado a lado */
+.field--pass .field__check { right: 52px; }
+.field--pass:has(.field__check) .field__input { padding-right: 84px; }
+
+/* ============== Estado de erro ============== */
+.field.is-invalid .field__input,
+.field.is-invalid .field__input:hover {
+    border-color: var(--danger);
+}
+.field.is-invalid .field__input:focus {
+    box-shadow: 0 0 0 4px var(--danger-soft);
+}
+.field.is-invalid .field__label { color: var(--danger); }
+
+.field__error {
+    margin-top: 6px;
+    padding-left: 16px;
+    font-size: 0.78rem;
+    color: var(--danger);
+}
+.field__error:empty { display: none; }
+
+.terms .field__error { padding-left: 28px; }
+.terms.is-invalid .check__box { border-color: var(--danger); }
+
+/* ============== Medidor de força da senha ============== */
+.strength {
+    margin-top: 10px;
+    padding: 0 2px;
+}
+
+.strength__bars {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+}
+
+.strength__bars span {
+    height: 4px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    transition: background 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.strength[data-level="1"] .strength__bars span:nth-child(-n+1) { background: var(--danger); }
+.strength[data-level="2"] .strength__bars span:nth-child(-n+2) { background: var(--warn); }
+.strength[data-level="3"] .strength__bars span:nth-child(-n+3) { background: var(--teal-2); }
+.strength[data-level="4"] .strength__bars span {
+    background: var(--teal-3);
+    box-shadow: 0 0 8px rgba(108, 211, 207, 0.5);
+}
+
+.strength__label {
+    margin-top: 8px;
+    font-size: 0.76rem;
+    color: var(--ink-3);
+    transition: color 0.2s var(--ease);
+}
+.strength[data-level="1"] .strength__label { color: var(--danger); }
+.strength[data-level="2"] .strength__label { color: var(--warn); }
+.strength[data-level="3"] .strength__label,
+.strength[data-level="4"] .strength__label { color: var(--teal-3); }
+
+/* Requisitos */
+.rules {
+    list-style: none;
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 12px;
+    padding: 0 2px;
+}
+
+.rules li {
+    position: relative;
+    padding-left: 20px;
+    font-size: 0.76rem;
+    color: var(--ink-4);
+    transition: color 0.2s var(--ease);
+}
+
+.rules li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 50%;
+    width: 12px; height: 12px;
+    transform: translateY(-50%);
+    border: 1.5px solid currentColor;
+    border-radius: 50%;
+    transition: background 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+
+.rules li::after {
+    content: '';
+    position: absolute;
+    left: 4px; top: 50%;
+    width: 3px; height: 6px;
+    border: solid var(--bg-1);
+    border-width: 0 1.6px 1.6px 0;
+    transform: translateY(-65%) rotate(45deg) scale(0);
+    transition: transform 0.2s var(--ease);
+}
+
+.rules li.is-met { color: var(--ink-2); }
+.rules li.is-met::before {
+    background: var(--teal-3);
+    border-color: var(--teal-3);
+}
+.rules li.is-met::after { transform: translateY(-65%) rotate(45deg) scale(1); }
+
+/* ============== Termos ============== */
+.terms { margin-top: 6px; }
+
+.check--top {
+    align-items: flex-start;
+    line-height: 1.5;
+}
+.check--top .check__box {
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+.check--top .link { font-size: inherit; }
+
+/* ============== Responsivo ============== */
+@media (max-width: 880px) {
+    .brand__title { font-size: 1.05rem; max-width: 100%; }
+    .perks { display: none; }
+    .card--signup .panel { padding-top: 40px; padding-bottom: 40px; }
+}
+
+@media (max-width: 480px) {
+    .card--signup .panel { padding: 32px 22px; }
+    .rules { grid-template-columns: 1fr; }
+}
