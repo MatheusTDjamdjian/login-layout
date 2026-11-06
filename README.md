@@ -10,15 +10,20 @@ Tela de login responsiva em HTML, CSS e JavaScript puros.
 - Aviso de Caps Lock
 - Saudação por horário (Bom dia / Boa tarde / Boa noite)
 - Responsivo (mobile, tablet, desktop)
+- Tela de criar conta (`cadastro.html`) com medidor de força de senha,
+  checklist de requisitos, confirmação de senha e validação inline
 
 ## Estrutura
 
 ```
 login-layout/
 ├── index.html
+├── cadastro.html
 ├── script.js
+├── cadastro.js
 ├── estilos/
 │   ├── style.css
+│   ├── cadastro.css
 │   └── media-query.css
 └── imagens/
     └── pexels-marcela-toledo-5610083.jpg
